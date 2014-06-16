@@ -1,7 +1,9 @@
 class Scheduler
+
   def initialize(input)
     @input = input
   end
+
   def consecutive_activities
     i = 0
     activity_array = []
@@ -16,5 +18,14 @@ class Scheduler
       end
     end
     activity_array
+  end
+
+  def validator
+    @input.each_with_index do |activity, index|
+      if activity[1] < 2 && index != @input.length - 1
+        return false
+      end
+    end
+    true
   end
 end
